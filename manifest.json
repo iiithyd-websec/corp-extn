@@ -1,0 +1,30 @@
+{
+"manifest_version": 2,
+"name": "CORP Extension",
+"description": "Defends against Cross Origin Request Attacks",
+"version": "1.0",
+
+ "permissions": [
+    "tabs",
+    "debugger",
+	"webRequest",
+	"webRequestBlocking",
+	"contentSettings",
+    "http://*/*"
+  ],
+   "background": {
+   "scripts": ["background.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["csrfblocker.js"],
+      "run_at": "document_start"
+    }
+	],
+  
+  "browser_action": {
+  "default_icon": "icon.png"
+  }
+}
